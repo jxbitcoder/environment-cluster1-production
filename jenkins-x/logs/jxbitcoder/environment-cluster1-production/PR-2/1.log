@@ -1,0 +1,51 @@
+
+Showing logs for build [32mjxbitcoder-environment-cluster1-x6hc8-1[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-tphvw[0m
+{"level":"warn","ts":1584276905.239589,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1584276905.2403333,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mjxbitcoder-environment-cluster1-x6hc8-1[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-fn64d[0m
+{"level":"warn","ts":1584276906.1797838,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1584276906.1818151,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32mjxbitcoder-environment-cluster1-x6hc8-1[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mjxbitcoder-environment-cluster1-x6hc8-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-jxbitcoder-environment-cluster1-x6hc8-g5qpv[0m
+{"level":"warn","ts":1584276910.3669066,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1584276911.445408,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/**bitcoder/environment-cluster1-production.git @ master in path /workspace/source"}
+
+Showing logs for build [32mjxbitcoder-environment-cluster1-x6hc8-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:a1f09e3de01f571f01b0082f66b7f8efafd73cc0,2:8365f33fdf505216de34475e55b5abebd4c993b3
+DEBUG: JX_LOG_LEVEL=error LC_ALL=C git fetch origin --unshallow 8365f33fdf505216de34475e55b5abebd4c993b3: a1f09e3de01f571f01b0082f66b7f8efafd73cc0:
+DEBUG: ran git fetch --unshallow origin 8365f33fdf505216de34475e55b5abebd4c993b3: a1f09e3de01f571f01b0082f66b7f8efafd73cc0: in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git branch
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git checkout master
+DEBUG: ran git checkout master in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git reset --hard a1f09e3de01f571f01b0082f66b7f8efafd73cc0
+DEBUG: ran git reset --hard a1f09e3de01f571f01b0082f66b7f8efafd73cc0 in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git clean -fd .
+DEBUG: ran clean --force -d . in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git merge 8365f33fdf505216de34475e55b5abebd4c993b3
+DEBUG: ran git merge 8365f33fdf505216de34475e55b5abebd4c993b3 in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git log --format=%H%x1f%an%x1f%ae%x1f%cn%x1f%ce%x1f%s%n%b%x1e a1f09e3de01f571f01b0082f66b7f8efafd73cc0..HEAD
+Merged SHA 8365f33fdf505216de34475e55b5abebd4c993b3 with commit message 'chore: Promote **-tutorial to version 1.0.0' into base branch master
+
+Showing logs for build [32mjxbitcoder-environment-cluster1-x6hc8-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-helm-build[0m
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: storage.googleapis.com https://storage.googleapis.com/chartmuseum.jenkins-x.io
+Successfully added Helm repository storage.googleapis.com.
+Adding missing Helm repo: jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080
+Successfully added Helm repository jenkins-x-chartmuseum.
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: chartmuseum.jenkins-x.io http://chartmuseum.jenkins-x.io
+Successfully added Helm repository chartmuseum.jenkins-x.io.
+error: failed to build the dependencies of chart '.': failed to run 'helm dependency build' command in directory '.', output: 'Hang tight while we grab the latest from your chart repositories...
+...Unable to get an update from the "local" chart repository (http://127.0.0.1:8879/charts):
+	Get http://127.0.0.1:8879/charts/index.yaml: dial tcp 127.0.0.1:8879: connect: connection refused
+...Successfully got an update from the "jenkins-x-chartmuseum" chart repository
+...Successfully got an update from the "stable" chart repository
+...Successfully got an update from the "chartmuseum.jenkins-x.io" chart repository
+...Successfully got an update from the "storage.googleapis.com" chart repository
+Update Complete.
+Error: Can't get a valid version for repositories **-tutorial. Try changing the version constraint in requirements.yaml'
+[31m
+Pipeline failed on stage 'from-build-pack' : container 'step-build-helm-build'. The execution of the pipeline has stopped.[0m
